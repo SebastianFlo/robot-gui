@@ -22,7 +22,6 @@
     "eslint-plugin-react": "^6.4.1",
     "mocha": "3.2.0"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/SebastianFlo/robot-gui.git"
