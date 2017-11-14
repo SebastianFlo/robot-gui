@@ -1,16 +1,7 @@
 import Robot from '../services/Robot';
-// import RobotTHREE from '../services/THREERobot.service';
-// import RobotGui from '../services/Robot.Gui';
-// import Target from '../services/Target';
-// import TargetGui from '../services/Target.Gui';
 import gui from '../services/UiDat';
-// import THREEView from '../services/THREEView';
 import storeManager from '../services/State';
-// import ws from '../services/WorkingSpace';
-// import Path from '../services/Path.Gui';
-// import Kinematic from '../services/Kinematic';
 import { scene, renderer, camera } from '../services/THREEScene';
-// const RemoteRobot = require('RemoteRobot')
 
 const logger = store => dispatch => (action, data) => {
   console.group(`ACTION ${action}`);

@@ -47,6 +47,7 @@ module.exports = {
     "import/extensions": 0,
     "import/no-unresolved": 0,
     "comma-dangle": 1,
-    "no-mixed-operators": 1
+    "no-mixed-operators": 1,
+    "camelcase": 1
   }
 }

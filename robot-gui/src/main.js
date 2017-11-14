@@ -3,6 +3,7 @@
 import Vue from 'vue';
 import App from './App';
 import router from './router';
+
 import './services/dependencies';
 import './services/THREERobot.service';
 import Hmi from './services/Hmi';
