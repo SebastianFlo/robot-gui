@@ -1,7 +1,7 @@
-import Robot from '../services/Robot';
-import gui from '../services/UiDat';
-import storeManager from '../services/State';
-import { scene, renderer, camera } from '../services/THREEScene';
+import Robot from './Robot';
+import gui from './UiDat';
+import storeManager from './State';
+import { scene, renderer, camera, initScene } from './THREEScene';
 
 const logger = store => dispatch => (action, data) => {
   console.group(`ACTION ${action}`);
@@ -93,14 +93,9 @@ if (!Object.values) {
 
 class Hmi {
   constructor() {
-    // const maxAngleVelocity = 90.0 / (180.0 * Math.PI) / 1000.0;
-
-    // const store = storeManager.createStore('Hmi', {});
-
-    // const scope = this;
+    initScene();
 
     /* THREEJS SCENE SETUP */
-
     this.scene = scene;
     this.renderer = renderer;
     this.camera = camera;

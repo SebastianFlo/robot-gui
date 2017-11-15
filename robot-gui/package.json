@@ -17,7 +17,10 @@
     "redux": "^3.6.0",
     "serialport": "^4.0.1",
     "socketio": "^1.0.0",
+    "stats.js": "^0.17.0",
     "three": "^0.88.0",
+    "three-orbit-controls": "^82.1.0",
+    "three-transform-controls": "^1.0.4",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },

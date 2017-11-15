@@ -1,5 +1,5 @@
-import storeManager from '../services/State';
-import Kinematic from '../services/Kinematic';
+import storeManager from './State';
+import Kinematic from './Kinematic';
 
 // const localState = {
 //   jointOutOfBound: [false, false, false, false, false, false],
@@ -7,7 +7,7 @@ import Kinematic from '../services/Kinematic';
 
 const maxAngleVelocity = 90.0 / (180.0 * Math.PI) / 1000.0;
 
-const geo = [
+let geo = [
   [2.5 + 2.3, 0, 7.3],
   [0, 0, 13.0],
   [1, 0, 2],
@@ -88,7 +88,7 @@ const robotStore = storeManager.createStore('Robot', defaultRobotState);
 let IK;
 
 function updateIK(geometry) {
-  const geo = Object.values(geometry).map((val, i, array) => [
+  geo = Object.values(geometry).map((val, i, array) => [
     val.x,
     val.y,
     val.z,
@@ -114,14 +114,14 @@ const calculateAngles = (jointLimits, position, rotation) => {
     angles,
   );
 
-  outOfBounds = [false, false, false, false, false, false];
+  const outOfBounds = [false, false, false, false, false, false];
 
   let i = 0;
 
   for (const index in jointLimits) {
     if (
       angles[i] < jointLimits[index][0] ||
-			angles[i] > jointLimits[index][1]
+      angles[i] > jointLimits[index][1]
     ) {
       outOfBounds[i] = true;
     }
@@ -212,7 +212,7 @@ robotStore.action('ROBOT_CHANGE_ANGLES', (state, angles) => {
 });
 
 robotStore.action('ROBOT_CHANGE_GEOMETRY', (state, data) => {
-  const geo = Object.assign({}, state.geometry, data);
+  geo = Object.assign({}, state.geometry, data);
   updateIK(geo);
   const { angles, outOfBounds } = calculateAngles(
     state.jointLimits,
