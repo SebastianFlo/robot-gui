@@ -17,7 +17,7 @@
       };
     },
     mounted() {
-      // const initRobot = new InitRobot();
+      const initRobot = new InitRobot();
     },
     methods: {
 

@@ -13,7 +13,7 @@ export default new Router({
     },
     {
       path: '/settings',
-      name: 'RobotScene',
+      name: 'Settings',
       component: RobotScene,
     },
   ],
