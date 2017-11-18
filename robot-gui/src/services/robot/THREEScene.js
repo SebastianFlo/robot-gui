@@ -9,7 +9,6 @@ import {
   DirectionalLight,
 } from 'three';
 
-
 import storeManager from './State';
 
 const THREE = require('three');

@@ -11,14 +11,14 @@ import {
 } from 'three';
 
 const THREERobot = function THREERobot(vInitial, limits, scene) {
-  this.THREE = new Group();
+  this.Group = new Group();
 
   this.robotBones = [];
   this.joints = [];
 
   const scope = this;
 
-  let parentObject = this.THREE;
+  let parentObject = this.Group;
 
   const colors = [0xaaaaaa, 0xbbbbbb, 0xbcbcbc, 0xcbcbcb, 0xcccccc, 0x0];
 
@@ -124,7 +124,7 @@ const THREERobot = function THREERobot(vInitial, limits, scene) {
     this.robotBones.push(linkGeo);
   }
 
-  scene.add(this.THREE);
+  scene.add(this.Group);
 
   this.angles = [0, 0, 0, 0, 0, 0];
 };

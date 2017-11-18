@@ -1,8 +1,5 @@
-import 'stats.js';
-import 'three-orbit-controls';
-import 'three-transform-controls';
-
-import '../assets/threex/THREEx.screenshot.js';
-import '../assets/threex/THREEx.FullScreen.js';
-import '../assets/threex/THREEx.WindowResize.js';
-import '../assets/EventDispatcher.js';
+import './robot/robot.three';
+import './robot/robot.gui';
+import './target.js';
+import './Target.Gui';
+import './WorkingSpace';

@@ -36,6 +36,7 @@ module.exports = {
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0,
     "no-plusplus": 0,
+    "no-console": 1,
     "no-restricted-syntax": ["off", "ForInStatement"],
     "max-len": 0,
     "newline-per-chained-call": 0,
@@ -48,6 +49,7 @@ module.exports = {
     "import/no-unresolved": 0,
     "comma-dangle": 1,
     "no-mixed-operators": 1,
-    "camelcase": 1
+    "camelcase": 1,
+    "no-use-before-define": 0
   }
 }
