@@ -2,7 +2,7 @@
   <div>
     This will be the three.js scene
     <h1>{{ msg }}</h1>
-    <div ref="container" id="container"></div>
+    <div id="container"></div>
   </div>
 </template>
 

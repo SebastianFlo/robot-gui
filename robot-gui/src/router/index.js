@@ -11,10 +11,10 @@ export default new Router({
       name: 'RobotScene',
       component: RobotScene,
     },
-    {
-      path: '/settings',
-      name: 'Settings',
-      component: RobotScene,
-    },
+    // {
+    //   path: '/settings',
+    //   name: 'Settings',
+    //   component: RobotScene,
+    // },
   ],
 });

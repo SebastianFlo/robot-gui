@@ -9,9 +9,11 @@ import {
   DirectionalLight,
 } from 'three';
 
-import OrbitControls from 'three-orbit-controls';
 
 import storeManager from './State';
+
+const THREE = require('three');
+const OrbitControls = require('three-orbit-controls')(THREE);
 
 const renderer = new WebGLRenderer({
   antialias: true, // to get smoother output
