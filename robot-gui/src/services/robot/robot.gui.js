@@ -60,9 +60,6 @@ const anglesGui = gui.addFolder('angles');
 let i = 0;
 
 for (const key in anglesDeg) {
-  if (!anglesDeg.hasOwnProperty(key)) {
-    return;
-  }
   anglesGui
     .add(anglesDeg, key)
     .min(jointLimits[`J${i}`][0] * RAD_TO_DEG)
