@@ -4,7 +4,10 @@
       <span>Robot GUI PWA</span>
     </header>
     <main>
-      <img src="./assets/logo.png" alt="Vue.js PWA">
+      <div class="navbar">
+        <img height=30 src="./assets/logo.png" alt="Vue.js PWA">
+        <router-link to="/basic">Basic</router-link>
+      </div>
       <router-view></router-view>
     </main>
   </div>
@@ -50,5 +53,10 @@ header span {
   font-weight: 400;
   box-sizing: border-box;
   padding-top: 16px;
+}
+
+.navbar {
+ display: inline-flex;
+ padding: 20px;
 }
 </style>

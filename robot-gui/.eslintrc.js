@@ -50,6 +50,7 @@ module.exports = {
     "comma-dangle": 1,
     "no-mixed-operators": 1,
     "camelcase": 1,
-    "no-use-before-define": 0
+    "no-use-before-define": 0,
+    "class-methods-use-this": 0
   }
 }
