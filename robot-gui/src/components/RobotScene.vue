@@ -7,8 +7,8 @@
 </template>
 
 <script>
-  import InitRobot from '../services/robot/index.js';
-  import InitDeps from '../services/dependencies.js';
+  // import InitRobot from '../services/robot/index.js';
+  // import InitDeps from '../services/dependencies.js';
 
 
   export default {
@@ -19,11 +19,8 @@
       };
     },
     mounted() {
-      const initRobot = new InitRobot();
-      const initDeps = new InitDeps();
-    },
-    methods: {
-
+      // const initRobot = new InitRobot();
+      // const initDeps = new InitDeps();
     },
   };
 </script>

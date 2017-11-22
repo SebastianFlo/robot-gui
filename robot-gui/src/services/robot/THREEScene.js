@@ -1,120 +1,117 @@
-import {
-  Scene,
-  AxisHelper,
-  GridHelper,
-  AmbientLight,
-  WebGLRenderer,
-  PerspectiveCamera,
-  OrthographicCamera,
-  DirectionalLight,
-} from 'three';
+// import {
+//   Scene,
+//   AxisHelper,
+//   GridHelper,
+//   AmbientLight,
+//   WebGLRenderer,
+//   PerspectiveCamera,
+//   OrthographicCamera,
+//   DirectionalLight,
+// } from 'three';
 
-import storeManager from './State';
+// import storeManager from './State';
 
-const THREE = require('three');
-const OrbitControls = require('three-orbit-controls')(THREE);
+// const THREE = require('three');
+// const OrbitControls = require('three-orbit-controls')(THREE);
 
-const renderer = new WebGLRenderer({
-  antialias: true, // to get smoother output
-  preserveDrawingBuffer: false, // no screenshot -> faster?
-});
+// const renderer = new WebGLRenderer({
+//   antialias: true, // to get smoother output
+//   preserveDrawingBuffer: false, // no screenshot -> faster?
+// });
 
-// create a scene
-const scene = new Scene();
+// // create a scene
+// const scene = new Scene();
 
-let camera;
+// let camera;
 
 function initScene() {
-  const THREEStore = storeManager.createStore('THREE', {});
-  /* THREEJS SCENE SETUP */
+//   const THREEStore = storeManager.createStore('THREE', {});
 
+//   /* THREEJS SCENE SETUP */
+//   renderer.setClearColor(0x333333);
 
-  renderer.setClearColor(0x333333);
+//   renderer.setSize(window.innerWidth, window.innerHeight);
+//   document.getElementById('container').appendChild(renderer.domElement);
 
-  renderer.setSize(window.innerWidth, window.innerHeight);
-  document.getElementById('container').appendChild(renderer.domElement);
+//   // toggle camera mode
+//   const perspectiveCamera = true;
 
+//   if (perspectiveCamera) {
+//     camera = new PerspectiveCamera(
+//       35,
+//       window.innerWidth / window.innerHeight,
+//       1,
+//       10000,
+//     );
+//   } else {
+//     camera = new OrthographicCamera(
+//       window.innerWidth / -2,
+//       window.innerWidth / 2,
+//       window.innerHeight / 2,
+//       window.innerHeight / -2,
+//       -500,
+//       1000,
+//     );
+//     camera.zoom = 20;
+//     camera.updateProjectionMatrix();
+//   }
 
+//   camera.up.set(0, 0, 1);
+//   camera.position.set(25, 25, 25);
+//   scene.add(camera);
 
-  // toggle camera mode
-  const perspectiveCamera = true;
+//   // lights
+//   const light = new AmbientLight(0xaaaaaa);
+//   scene.add(light);
+//   const light2 = new DirectionalLight(0xaaaaaa);
+//   light2.position.set(1, 1.3, 1).normalize();
+//   scene.add(light2);
 
-  if (perspectiveCamera) {
-    camera = new PerspectiveCamera(
-      35,
-      window.innerWidth / window.innerHeight,
-      1,
-      10000,
-    );
-  } else {
-    camera = new OrthographicCamera(
-      window.innerWidth / -2,
-      window.innerWidth / 2,
-      window.innerHeight / 2,
-      window.innerHeight / -2,
-      -500,
-      1000,
-    );
-    camera.zoom = 20;
-    camera.updateProjectionMatrix();
-  }
+//   const cameraControls = new OrbitControls(camera, renderer.domElement);
+//   cameraControls.addEventListener('change', () => renderer.render(scene, camera));
 
-  camera.up.set(0, 0, 1);
-  camera.position.set(25, 25, 25);
-  scene.add(camera);
+//   function onWindowResize() {
+//     if (perspectiveCamera) {
+//       camera.aspect = window.innerWidth / window.innerHeight;
+//       camera.updateProjectionMatrix();
+//     } else {
+//       camera.left = window.innerWidth / -2;
+//       camera.right = window.innerWidth / 2;
+//       camera.top = window.innerHeight / 2;
+//       camera.bottom = window.innerHeight / -2;
+//       camera.updateProjectionMatrix();
+//     }
 
-  // lights
-  const light = new AmbientLight(0xaaaaaa);
-  scene.add(light);
-  const light2 = new DirectionalLight(0xaaaaaa);
-  light2.position.set(1, 1.3, 1).normalize();
-  scene.add(light2);
+//     renderer.setSize(window.innerWidth, window.innerHeight);
+//     renderer.render(scene, camera);
+//   }
 
-  const cameraControls = new OrbitControls(camera, renderer.domElement);
-  cameraControls.addEventListener('change', () => renderer.render(scene, camera));
+//   window.addEventListener('resize', onWindowResize, false);
 
-  function onWindowResize() {
-    if (perspectiveCamera) {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-    } else {
-      camera.left = window.innerWidth / -2;
-      camera.right = window.innerWidth / 2;
-      camera.top = window.innerHeight / 2;
-      camera.bottom = window.innerHeight / -2;
-      camera.updateProjectionMatrix();
-    }
+//   const size = 10;
+//   const step = 20;
 
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.render(scene, camera);
-  }
+//   const gridHelper = new GridHelper(size, step);
+//   gridHelper.rotation.x = Math.PI / 2;
+//   scene.add(gridHelper);
 
-  window.addEventListener('resize', onWindowResize, false);
+//   const axisHelper = new AxisHelper(5);
+//   scene.add(axisHelper);
 
-  const size = 10;
-  const step = 20;
+//   /* END THREEJS SCENE SETUP */
 
-  const gridHelper = new GridHelper(size, step);
-  gridHelper.rotation.x = Math.PI / 2;
-  scene.add(gridHelper);
-
-  const axisHelper = new AxisHelper(5);
-  scene.add(axisHelper);
-
-  /* END THREEJS SCENE SETUP */
-
-  THREEStore.listen(() => {
-    // kickass trick to render after other listeners. Stack and stuff
-    setTimeout(() => {
-      renderer.render(scene, camera);
-    }, 0);
-  });
+//   THREEStore.listen(() => {
+//     // kickass trick to render after other listeners. Stack and stuff
+//     setTimeout(() => {
+//       renderer.render(scene, camera);
+//     }, 0);
+//   });
 }
 
 export {
-  scene,
-  renderer,
-  camera,
+//   scene,
+//   renderer,
+//   camera,
   initScene,
 };
 

@@ -40,6 +40,10 @@ class InverseKinematic {
     this.geometry = geometry;
   }
 
+  // addVectorArrow(name, from, vector, color, length) {
+  //   addArrow(name, from, [from[0] + vector[0], from[1] + vector[1], from[2] + vector[2]], color, length)
+  // }
+
   calculateAngles(x, y, z, a, b, c, angles) {
     const cc = Math.cos(c);
     const sc = Math.sin(c);
@@ -187,7 +191,7 @@ class InverseKinematic {
 
     const XY_parallel_aligned_vector = [10 * Math.cos(R[0] + Math.PI / 2), -(-10 * Math.sin(R[0] + Math.PI / 2)), 0];
 
-    // static configuration
+    // configuration
     if (Math.abs(this.angleBetween(J4J5_J4J3_normal_vector, XY_parallel_aligned_vector, this.cross(XY_parallel_aligned_vector, [0, 0, 1]))) - Math.PI / 2 >= 0.0001) {
       J4J5_J4J3_normal_vector[0] *= -1;
       J4J5_J4J3_normal_vector[1] *= -1;
@@ -211,7 +215,7 @@ class InverseKinematic {
 
     R[4] -= this.angleBetween(J4J5_vector, J4J3_vector, reference_vector);
     R[4] = (3 / 2 * Math.PI + R[4]) % (2 * Math.PI) - 3 / 2 * Math.PI; // clamp angle
-    addVectorArrow('2', J[4], J4J5_J4J3_normal_vector, 0x00ff00);
+    // addVectorArrow('2', J[4], J4J5_J4J3_normal_vector, 0x00ff00);
 
     // ---- R5 ----
     const reference_vector3 = this.cross(J4J5_vector, [0, 0, 10]);
@@ -482,14 +486,14 @@ class InverseKinematic {
     jointsResult[5][5] = thetaZ;
   }
 
-  static cross(vectorA, vectorB, result = []) {
+  cross(vectorA, vectorB, result = []) {
     result[0] = vectorA[1] * vectorB[2] - vectorA[2] * vectorB[1];
     result[1] = vectorA[2] * vectorB[0] - vectorA[0] * vectorB[2];
     result[2] = vectorA[0] * vectorB[1] - vectorA[1] * vectorB[0];
     return result;
   }
 
-  static dot(vectorA, vectorB) {
+  dot(vectorA, vectorB) {
     return (
       vectorA[0] * vectorB[0] +
       vectorA[1] * vectorB[1] +
@@ -524,11 +528,11 @@ class InverseKinematic {
     return angle * sign;
   }
 
-  static length3(vector) {
-    return Math.sqrt((vector[0] ** x2) + (vector[1] ** x2) + (vector[2] ** x2));
+  length3(vector) {
+    return Math.sqrt((vector[0] ** 2) + (vector[1] ** 2) + (vector[2] ** 2));
   }
 
-  static length2(a, b) {
+  length2(a, b) {
     return Math.sqrt((a ** 2) + (b ** 2));
   }
 
@@ -540,7 +544,7 @@ class InverseKinematic {
     return Math.atan2(this.length3(cross), this.dot(v1, v2));
   }
 
-  static normalize(vector, result) {
+  normalize(vector, result) {
     const length = Math.sqrt(
       vector[0] * vector[0] + vector[1] * vector[1] + vector[2] * vector[2],
     );
