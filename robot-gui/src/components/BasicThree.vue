@@ -12,7 +12,7 @@
   const OrbitControls = require('three-orbit-controls')(THREE);
 
   export default {
-    name: 'RobotScene',
+    name: 'BasicThree',
     data() {
       return {
         msg: 'Welcome to the three.js scene',
@@ -23,8 +23,8 @@
         renderer: undefined,
         controls: undefined,
         objects: {
-          cube: undefined
-        }
+          cube: undefined,
+        },
       };
     },
     methods: {
@@ -39,7 +39,7 @@
       moveCamera(axis, value) {
         this.camera.position[axis] = value;
         this.controls.update();
-      }
+      },
     },
     mounted() {
       this.scene = new THREE.Scene();
@@ -53,7 +53,7 @@
       // all the points and faces of the cube
       const geometry = new THREE.BoxGeometry(1, 1, 1);
       // geometry needs a material, here it's the color green
-      const material = new THREE.MeshBasicMaterial( { color: 0x00ff00, wireframe: true } );
+      const material = new THREE.MeshBasicMaterial({ color: 0x00ff00, wireframe: true });
       // combine geometry and material in a mesh
       this.objects.cube = new THREE.Mesh(geometry, material);
 
