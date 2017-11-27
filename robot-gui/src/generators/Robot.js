@@ -10,7 +10,7 @@ class Robot {
     this.thickness = 1;
 
     // test only
-    const cube = this.createCube(0, 0, 0, 10, 10, 10, 0, 0, 0);
+    const cube = this.createCube(0, 0, 0, 2, 2, 2, 0, 0, 0);
     this.group.add(cube);
   }
 

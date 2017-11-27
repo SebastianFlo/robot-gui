@@ -135,7 +135,7 @@
       // this.addToScene(this.objects.cube);
 
       // Add robot to scene
-      // this.addToScene(this.objects.robot.group);
+      this.addToScene(this.objects.robot.group);
 
       // start it all
       this.animate();
