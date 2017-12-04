@@ -75,6 +75,7 @@ const THREERobot = function THREERobot(vInitial, limits, scene) {
         // joint.rotation.y = Math.PI
         break;
       case 5: {
+        // if the last joint add helpers
         joint.rotation.x = Math.PI / 2;
         group.rotation.y = Math.PI;
         const arrowZ = new ArrowHelper( new Vector3(0, 0, 1), new Vector3(0, 0, 0), 3, 0x0000ff);
