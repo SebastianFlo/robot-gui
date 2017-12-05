@@ -104,7 +104,7 @@ const THREERobot = function THREERobot(vInitial, limits, scene) {
   vInitial.push([0, 0, 0]); // add a 6th pseudo link for 6 axis
   for (let i = 0; i < vInitial.length; i++) {
     const link = vInitial[i];
-
+    // generate a link and the corresponding joint
     const linkGeo = createCube(
       x,
       y,

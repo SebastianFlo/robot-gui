@@ -11,29 +11,8 @@ class Robot {
     this.thickness = 1;
 
     // test only
-    const base = this.createJoint(0, 0, 1, 3, 2, 2, 0, 0, 0);
-    const baseLink = this.createBox(0, 0, 3.5, 2.5, 1, 2);
-    const shoulder = this.createJoint(0, 0, 5, 1, 4, 2, 0, 0, 0);
-    const shoulderLink = this.createBox(0, 0, 7.5, 2, 0.5, 4);
-    const elbow = this.createJoint(0, 0, 10, 1, 4, 2, 0, 0, 0);
-    const elbowLink = this.createBox(0, 2.5, 10, 2, 0.5, 4);
-    const wrist = this.createJoint(-1.5, 3, 10, 0.5, 4, 2, 0, 0, 0);
-    const tip = this.createTip(0, 5, 10);
-
-    base.rotation.x = (Math.PI / 2);
-    shoulder.rotation.z = (Math.PI / 2);
-    elbow.rotation.z = (Math.PI / 2);
-    elbowLink.rotation.x = (Math.PI / 2);
-    wrist.rotation.z = (Math.PI / 2);
-
-    this.group.add(base);
-    this.group.add(baseLink);
-    this.group.add(shoulder);
-    this.group.add(shoulderLink);
-    this.group.add(elbow);
-    this.group.add(elbowLink);
-    this.group.add(wrist);
-    this.group.add(tip);
+    const arm = this.generateArm();
+    this.group.add(arm);
   }
 
   createBox(x = 0, y = 0, z = 0, w = 1, h = 1, d = 1) {
@@ -88,6 +67,39 @@ class Robot {
     tipGroup.position.set(x, y, z);
 
     return tipGroup;
+  }
+
+  generateArm(jointPositions) {
+    // for (let i = 0; i < jointPositions.length; i++) {
+    //   // create link and joints based on positions
+    // }
+    const arm = new THREE.Group();
+
+    const base = this.createJoint(0, 0, 1, 3, 2, 2, 0, 0, 0);
+    const baseLink = this.createBox(0, 0, 3.5, 2.5, 1, 2);
+    const shoulder = this.createJoint(0, 0, 5, 1, 4, 2, 0, 0, 0);
+    const shoulderLink = this.createBox(0, 0, 7.5, 2, 0.5, 4);
+    const elbow = this.createJoint(0, 0, 10, 1, 4, 2, 0, 0, 0);
+    const elbowLink = this.createBox(0, 2.5, 10, 2, 0.5, 4);
+    const wrist = this.createJoint(-1.5, 3, 10, 0.5, 4, 2, 0, 0, 0);
+    const tip = this.createTip(0, 5, 10);
+
+    base.rotation.x = (Math.PI / 2);
+    shoulder.rotation.z = (Math.PI / 2);
+    elbow.rotation.z = (Math.PI / 2);
+    elbowLink.rotation.x = (Math.PI / 2);
+    wrist.rotation.z = (Math.PI / 2);
+
+    arm.add(base);
+    arm.add(baseLink);
+    arm.add(shoulder);
+    arm.add(shoulderLink);
+    arm.add(elbow);
+    arm.add(elbowLink);
+    arm.add(wrist);
+    arm.add(tip);
+
+    return arm;
   }
 }
 
